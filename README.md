@@ -14,8 +14,10 @@
 - Awesome Vue 中包含各种官方认可的第三方库。
 
 - 1.1 vue 开发环境
-	- <script>引入
+	- <script>引入。
+		
 		- 详见 **01_vue_debut/vue_import.html**
+		
 		- <script type="text/javascript" src="../vue.js"></script>
 		-  在chrome中添加开发者工具：https://github.com/vuejs/vue-devtools
 		- Vue.config 中有 production配置，将其设为false可以消除vue.js文件导致的production警告。详见文件中**script**。如果还有提示，将配置语句直接加在vue.js中：line 9282。
