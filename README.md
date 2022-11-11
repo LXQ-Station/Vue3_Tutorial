@@ -16,14 +16,11 @@
 - 1.1 vue 开发环境
 	- <script>引入
 		- 详见 **01_vue_debut/vue_import.html**
-
 		- <script type="text/javascript" src="../vue.js"></script>
-
-		- 在chrome中添加开发者工具：https://github.com/vuejs/vue-devtools
-
+		-  在chrome中添加开发者工具：https://github.com/vuejs/vue-devtools
 		- Vue.config 中有 production配置，将其设为false可以消除vue.js文件导致的production警告。详见文件中**script**。如果还有提示，将配置语句直接加在vue.js中：line 9282。
-
 	- NPM 引入
+
 - 1.2 初识 vue
 	- 详见 **01_vue_debut/vue_import.html**。
 	- 浏览器打开网页时，会默认去请求页签图标。
