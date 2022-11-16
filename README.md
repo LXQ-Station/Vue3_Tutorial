@@ -62,21 +62,67 @@
 - 2.2 什么是数据代理
 	- 数据代理：通过一个对象代理对另一个对象中了属性的操作（读/写）
 	```
-		<script type="text/javascript">
-            let obj1 = {x:100}
-            let obj2 = {y:200}
-
-            Object.defineProperty(obj2,'x',{
-                get(){
-                    return obj1.x
-                },
-                set(value){
-                    obj1.x = value
-                }
-            })
-        </script>
+	<script type="text/javascript">
+        let obj1 = {x:100}
+        let obj2 = {y:200}
+        Object.defineProperty(obj2,'x',{
+            get(){
+               return obj1.x
+            },
+            set(value){
+               obj1.x = value
+            }
+        })
+    </script>
 	```
+- 2.3 Vue中的数据代理
+	- _data属性是data传入的值。
+	- 修改vm，Vue中也会更改。
+	- Vue中的数据代理：通过vm对象来代理data对象中属性的操作（读/写）
+	- Vue中数据代理的好处：更加方便的操作data中的数据
+	- 基本原理：
+		- 通过Object.defineProperty()把data对象中所有属性添加到vm上
+		- 为每一个添加到vm上的属性，都指定一个getter/setter
+		- 在getter/setter内部去操作（读/写）data中对应的属性
 
+## 事件处理
+- 事件的基本使用
+	- ```<button v-on:click="showInfo">Click To Show Info</button>```
+		- 调用函数**v-on:click="showInfo"**,简写为**@click："showInfo"**
+		- 点击button时调用showInfo函数
+		- 在Vue实例中，用methods来定义函数
+		- 点击button时，会默认产生一个参数传入函数(PointerEvent)
+		- 在传参时，用$event占位,老师的版本中，传参会导致event丢失，但我的版本中并不会。
+	- 使用v-on:xxx或@xxx绑定事件，其中xxx是事件名
+	- 事件的回调需要写在methods对象中，最终会在vm上
+	- methods中配置的函数，不要用箭头函数，否则this就不是vm了
+	* @click="demo" 和@click="demo($event)"效果一致，但后者可以传参。
+
+- 事件修饰符：可以连着写。
+	- prevent：阻止默认事件（常用）
+	- stop：阻止事件冒泡（常用）
+	- once：事件只触发一次（常用）
+	- capture：使用事件的捕获模式->捕获模式时层层进入，在被捕获时就触发事件。
+	- self：只有event.target是当前操作的元素时才触发事件
+	- passive：事件的默认行为立即执行，无需等待事件回调执行完毕
+
+- 键盘事件
+	- vue中常用的按键别名：
+		- 回车=>enter
+		- 删除=>delete
+		- 退出=>esc
+		- 空格=>space
+		- 换行=>tab(特殊，必须配合keydown去使用)
+		- 上=>up
+		- 下=>up
+		- 左=>left
+		- 右=>right
+	- Vue未提供别名的按键，可以使用案件原始key值去绑定。但注意要转为kebab-cas(段横线命名)
+	- 系统修饰键（用法特殊）：crl,alt,shift,meta
+		- 配合keyup使用：按下修饰键的同时，再按下其他键，随后释放其他键，事件才被触发
+		- 配合keydown使用：正常触发事件
+	- 可以使用keyCode来指定具体的按键。（不推荐）
+	- Vue.config.keyCodes.自定义键名 = 键码，可以去定制键名。（不推荐）
 ## vue-cli
 
 ## vue-router

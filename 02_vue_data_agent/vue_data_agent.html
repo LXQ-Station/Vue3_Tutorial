@@ -7,7 +7,20 @@
     </head>
     <body>
         <!--数据代理：通过一个对象代理对另一个对象中了属性的操作（读/写）-->
+        <div id="root">
+            <h2>学校名称：{{name}}</h2>
+            <h2>学校地址：{{address}}</h2>
+        </div>
         <script type="text/javascript">
+            Vue.congig.productionTip = false
+
+            const vm = new Vue({
+                el:'#root',
+                data:{
+                    name:'INSA Lyon',
+                    address:'20 Avenue Alber Einstein'
+                }
+            })
         </script>
     </body>
 </html>

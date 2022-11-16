@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" >
+        <title>keyboard event</title>
+        <script type="text/javascript" src="../vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            <h2>Welcome To {{name}}</h2>
+            <input type="text" placeholder="按下回车提示输入" @keyup.enter ="showInfo">
+            <input type="text" placeholder="按下回车提示输入" @keydown.tab ="showInfo">
+        </div>
+    </body>
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        new Vue({
+            el:'#root',
+            data:{
+                name:'The World',
+            },
+            methods:{
+                showInfo(e){
+                    if (e.keyCode != 13) return
+                    // console.log(e.keyCode)
+                    console.log(e.target.value)
+                }
+
+            },
+        })
+    </script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" >
+        <title>事件的基本处理</title>
+        <script type="text/javascript" src="../vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            <h2>Welcome To {{name}}</h2>
+            <!-- <button v-on:click="showInfo1">Click To Show Info</button> -->
+            <button @click="showInfo1">Click To Show Info(no parameter)</button>
+            <button @click="showInfo2(66)">Click To Show Info(parameter)</button>
+        </div>        
+    </body>
+    
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                name: 'The World'
+            },
+            methods:{
+                showInfo1(event){
+                    // console.log(event)
+                    // console.log(this) //此处的this是vm
+                    alert('Hello!')
+                },
+                showInfo2(number){
+                    // console.log(event)
+                    // console.log(this) //此处的this是vm
+                    console.log(event,number)
+                    alert('Hello!!')
+                },
+            }
+        })
+    </script>
+</html>
