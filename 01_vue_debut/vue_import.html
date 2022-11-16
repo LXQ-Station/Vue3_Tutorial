@@ -18,11 +18,32 @@
 			//创建Vue实例
 			new Vue({
 				el:'#root', //el(element)用于指定当前vue实例为哪个容器服务，值通常为css内的id选择器字符串
-				data:{ //data中用于存储数据，数据供el所指定的容器去使用
+				data:{ //data中用于存储数据，数据供el所指定的容器去使用 //对象式
 					name:'World',
 					address:'Beijing'
 				}
 			}) 
+
+			//el的两种写法
+			// const v = new Vue({
+			// 	//el:'#root',
+			// 	data:{
+			// 		name:'World',
+			// 		address:'Beijing'
+			// 	}
+			// }) 
+			// console.log(v)
+			// v.$mount('#root') //挂载
+
+			//data的两种写法
+			// new Vue({
+			// 	el:'#root',
+			// 	data:function(){ //函数式
+			// 		return{
+			// 			name:'Jack'
+			// 		}
+			// 	}
+			// })
 
 
 		</script>
